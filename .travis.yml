@@ -78,7 +78,7 @@ install:
 script:
   - cd ./src
   - if [ ${TARGET_PLATFORM:0:7} == Android ]; then python build_mozc.py gyp --target_platform=Android --android_arch=${TARGET_PLATFORM:8:6}; fi
-  - if [ ${TARGET_PLATFORM:0:7} == Android ]; then python build_mozc.py build -c Release package; fi
+  - if [ ${TARGET_PLATFORM:0:7} == Android ]; then python build_mozc.py build -c Debug package; fi
   - if [ $TARGET_PLATFORM == Linux ]; then python build_mozc.py gyp --target_platform=Linux; fi
   - if [ $TARGET_PLATFORM == Linux ]; then python build_mozc.py build -c Release package; fi
   - if [ $TARGET_PLATFORM == Linux ]; then python build_mozc.py runtests -c Release; fi

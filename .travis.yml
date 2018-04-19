@@ -97,7 +97,7 @@ matrix:
 deploy:
   provider: releases
   api_key: $deploy_key
-  file: MozcForAndroid-debug.apk
+  file: mozc/src/android/bin/MozcForAndroid-debug.apk
   skip_cleanup: true
   on:
     branch: master

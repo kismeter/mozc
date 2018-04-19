@@ -93,11 +93,14 @@ matrix:
   - os: osx
     env: TARGET_PLATFORM=Android_arm64
 
+before_deploy:
+  - ls ./
+  - cd ./android/bin
 
 deploy:
   provider: releases
   api_key: $deploy_key
-  file: mozc/src/android/bin/MozcForAndroid-debug.apk
+  file: MozcForAndroid-debug.apk
   skip_cleanup: true
   on:
     branch: master

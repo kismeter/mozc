@@ -42,11 +42,7 @@ compiler: clang
 env:
   - TARGET_PLATFORM=Android_arm
   - TARGET_PLATFORM=Android_arm64
-  - TARGET_PLATFORM=Android_x86
-  - TARGET_PLATFORM=Android_x86_64
-  - TARGET_PLATFORM=Linux
-  - TARGET_PLATFORM=NaCl
-  - TARGET_PLATFORM=Mac
+
 
 before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update; fi
@@ -96,11 +92,12 @@ matrix:
     env: TARGET_PLATFORM=Android_arm
   - os: osx
     env: TARGET_PLATFORM=Android_arm64
-  - os: osx
-    env: TARGET_PLATFORM=Android_x86
-  - os: osx
-    env: TARGET_PLATFORM=Android_x86_64
-  - os: osx
-    env: TARGET_PLATFORM=Linux
-  - os: osx
-    env: TARGET_PLATFORM=NaCl
+
+
+deploy:
+  provider: releases
+  api_key: $deploy_key
+  file: /android/bin/MozcForAndroid-debug.apk
+  skip_cleanup: true
+  on:
+    tags: true

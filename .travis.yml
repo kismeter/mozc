@@ -100,4 +100,5 @@ deploy:
   file: /android/bin/MozcForAndroid-debug.apk
   skip_cleanup: true
   on:
-    tags: true
+    branch: master
+    tags: false
